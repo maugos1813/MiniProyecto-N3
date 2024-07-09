@@ -1,0 +1,86 @@
+.modal-overlay{
+    position: fixed;
+    top: -65%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:165% ;
+}
+
+.modal-content{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search1-bar{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-location, .search-guests{
+    flex: 1;
+    margin-right: 10px;
+}
+
+.search-location label, .search-guests label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.search-location input, .search-location input{
+    width: 426px;
+    height: 55px;
+    top: 93px;
+    left: 97px;
+    border-radius: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.search-button{
+    padding: 10px 20px;
+    background-color: #f53b57;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    margin-right: 5px;
+}
+
+.modal-body{
+    margin-top: 20px;
+}
+
+.location-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.location-list li{
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.location-list li:last-child{
+    border-bottom: none;
+}
