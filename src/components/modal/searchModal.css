@@ -1,13 +1,13 @@
 .modal-overlay{
     position: fixed;
-    top: -65%;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:center;
+    align-items:baseline;
     height:165% ;
 }
 
@@ -16,50 +16,88 @@
     padding: 20px;
     border-radius: 10px;
     width: 100%;
+    height: 460px;
 }
 
 .modal-header{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    margin: 93px 96px 0 96px;
 }
 
 .search1-bar{
     display: flex;
-    align-items: center;
+    align-items:end;
     width: 100%;
+    justify-content: center;
+    border: none;
+    border-radius: 16px;
+    height: 55px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 .search-location, .search-guests{
-    flex: 1;
-    margin-right: 10px;
+    flex:1;
+    margin-right: 0px;
+    border: #333333;
+
+
+}
+
+div.search-location{
+    width: 500px;
+}
+
+.inputGuests{
+    border: none;
+    height: 55px;
+    width: 426px;
+    border-radius: 16px;   
+}
+
+.inputGuests{
+    text-indent: 20px;
+}
+
+.labelG{
+    position: relative;
+    top: 23px;
+    font-size: 11px;
+    left: 20px;
 }
 
 .search-location label, .search-guests label{
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    position: relative;
+    
 }
 
 .search-location input, .search-location input{
     width: 426px;
-    height: 55px;
+    height: 52px;
     top: 93px;
     left: 97px;
     border-radius: 16px;
-    padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #333333;
+    line-height: 17.57px;
+    border: none;
 }
 
-.search-button{
-    padding: 10px 20px;
-    background-color: #f53b57;
+.search1-button{
+    padding: 0px 25px ;
+    background-color: #EB5757;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
+    width: 127px;
+    height: 55px;
 }
 
 .search-icon {
@@ -77,10 +115,71 @@
 }
 
 .location-list li{
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    padding: 20px 115px;
+    height: 24px;
+    width: 100%;
+    cursor: pointer;
 }
 
 .location-list li:last-child{
     border-bottom: none;
+}
+
+.location-input{
+    width: 426px ;
+    padding-top: 3px;
+    text-indent: 20px;
+}
+
+label.label1{
+    position: relative;
+    top: 23px;
+    left: 25px;
+    font-size: 11px;
+}
+
+.location-input::placeholder{
+    text-indent: 20px ;
+    
+}
+
+/* ------------------------------------------------------------------------------------ */
+.adults{
+    position: relative;
+    left: 47%;
+    padding-bottom: 10px;
+}
+
+.children{
+    position: relative;
+    left: 47%;
+}
+
+.adults1{
+    font-size: 14px;
+    padding-bottom: 20px;
+
+}
+
+.guest-counter button{
+    border-radius: 5px;
+    border-color: 1 solid #828282;
+    color: #828282;
+    width: 30px;
+    height: 30px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.guest-counter{
+    position: relative;
+    right: 15px;
+}
+
+.b1, .b2{
+    border-color: #828282;
+}
+
+.children1{
+    font-size: 14px;
 }

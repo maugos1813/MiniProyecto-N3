@@ -1,29 +1,26 @@
-import React, {useState, useEffect} from "react";
-import stays from '../assets/stays.json'
+import React, { useState, useEffect } from "react";
+import stays from '../assets/stays.json';
 import { StayCard } from "./stayCard";
 
-export const StaysList = () => {
-  const[data, setData] = useState([])
-  
-  const getData = async () => {
-    const rs = await fetch('../assets/stays.json')
-    const rsJson = await rs.json()
-    setData(rsJson)
-  }
+export const StaysList = ({ locationFilter }) => {
+  const [filteredStays, setFilteredStays] = useState([]);
 
-  useEffect(()=>{
-    getData
-  }, [])
+  useEffect(() => {
+    if (locationFilter) {
+      setFilteredStays(stays.filter(stay => stay.city.toLowerCase().includes(locationFilter.toLowerCase())));
+    } else {
+      setFilteredStays(stays);
+    }
+  }, [locationFilter]);
 
-
-    return(
-      <div className="stays-list">
-        <h1>Stays in Finland</h1>
-        <div className="stays-container">
-          {stays.map(stay => (
-            <StayCard key={stay.id} stay={stay} />
-          ))}
-        </div>
-      </div>  
-    )
-}
+  return (
+    <div className="stays-list">
+      <h1>Stays in Finland</h1>
+      <div className="stays-container">
+        {filteredStays.map((stay, index) => (
+          <StayCard key={stay.id || index} stay={stay} />
+        ))}
+      </div>
+    </div>
+  );
+};
