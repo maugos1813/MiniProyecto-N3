@@ -1,23 +1,41 @@
 import React, { useState, useEffect } from "react";
-import stays from '../assets/stays.json';
 import { StayCard } from "./stayCard";
 
-export const StaysList = ({ locationFilter }) => {
+export const StaysList = ({ location, guest, searchResults}) => {
+
   const [filteredStays, setFilteredStays] = useState([]);
 
+  const getData = async () => {
+    const rs = await fetch('./src/assets/stays.json')
+    const jsonRs = await rs.json()
+    setFilteredStays(jsonRs)
+  }
+  
   useEffect(() => {
-    if (locationFilter) {
-      setFilteredStays(stays.filter(stay => stay.city.toLowerCase().includes(locationFilter.toLowerCase())));
-    } else {
-      setFilteredStays(stays);
-    }
-  }, [locationFilter]);
+    getData()
+  }, [])
+
+useEffect(() => {
+  const rs = searchResults.filter(m => {
+    const combinedLocation = `${m.city}, ${m.country}`.toLowerCase();
+    return combinedLocation.includes(location.toLowerCase());
+  });
+  setFilteredStays(rs);
+}, [location]);
+
+useEffect(()=>{
+  const rs = searchResults.filter(m => {const maxGuests = m.maxGuests ? m.maxGuests.toString() : ""; 
+    return maxGuests.toLowerCase().includes(guest.toString().toLowerCase())})
+  setFilteredStays(rs)
+},[guest])
+
 
   return (
     <div className="stays-list">
       <h1>Stays in Finland</h1>
       <div className="stays-container">
-        {filteredStays.map((stay, index) => (
+        {filteredStays &&
+        filteredStays.map((stay, index) => (
           <StayCard key={stay.id || index} stay={stay} />
         ))}
       </div>

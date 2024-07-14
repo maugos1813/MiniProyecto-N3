@@ -7,34 +7,42 @@ import React, { useState, useEffect } from 'react';
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [locationFilter, setLocationFilter] = useState("");
+  const [stays, setStays] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [location, setLocation] = useState('');
+  const [guest, setGuest]= useState(0)
+
+
+  const getData = async () => {
+    const rs = await fetch('./src/assets/stays.json');
+    const jsonRs = await rs.json();
+    setStays(jsonRs);
+    setSearchResults(jsonRs);
+  };
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setModalIsOpen(false);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
+    getData();
   }, []);
-
-  const handleLocationChange = (location) => {
-    setLocationFilter(location);
-    setModalIsOpen(false); // Cerrar el modal después de seleccionar la ubicación
-  };
 
   return (
     <>
       <div>
-        <Header setModalIsOpen={setModalIsOpen} />
-        <StaysList locationFilter={locationFilter} />
+        <Header setModalIsOpen={setModalIsOpen}
+        location={location}
+        guest={guest}
+         />
+        <StaysList guest={guest} 
+        location={location} 
+        searchResults={searchResults}/>
         <Footer />
-        <SearchModal isOpen={modalIsOpen} onClose={() => setModalIsOpen(false)} onLocationChange={handleLocationChange} />
+        <SearchModal
+          isOpen={modalIsOpen}
+          onClose={() => setModalIsOpen(false)}
+          location={location}
+          setLocation={setLocation}
+          guest={guest}
+          setGuest={setGuest}
+        />
       </div>
     </>
   );
