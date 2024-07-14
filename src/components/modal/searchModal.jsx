@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './searchModal.css';
 
-export const SearchModal = ({ isOpen, onClose, onLocationChange,location,setLocation, guest, setGuest}) => {
+export const SearchModal = ({ isOpen, onClose, location, setLocation, guest, setGuest}) => {
   const [showGuestOptions, setShowGuestOptions] = useState(false);
   const [adults, setAdults] = useState(0);
   const [data, setData] = useState([]);

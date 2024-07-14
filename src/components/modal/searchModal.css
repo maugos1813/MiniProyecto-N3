@@ -183,3 +183,84 @@ label.label1{
 .children1{
     font-size: 14px;
 }
+
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 10px;
+        width: 90%;
+        height: auto; 
+    }
+
+    .modal-header {
+        margin: 10px 0;
+    }
+
+    .search1-bar {
+        flex-direction: column;
+        height: auto; 
+    }
+
+    .inputGuests {
+        height: auto; 
+    }
+
+    .search-location input, .search-guests input {
+        height: auto; 
+    }
+
+    .search1-button {
+        width: 100%;
+        height: auto; 
+        margin-top: 10px;
+    }
+
+    .adults, .children {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .guest-counter button {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-content {
+        padding: 5px;
+        width: 100%;
+        height: auto; 
+    }
+
+    .modal-header {
+        flex-direction: column;
+        margin: 5px 0;
+    }
+
+    .search1-bar {
+        flex-direction: column;
+        height: auto; 
+    }
+
+    .inputGuests {
+        height: auto; 
+    }
+
+    .search-location input, .search-guests input {
+        height: auto; 
+    }
+
+    .search1-button {
+        width: 100%;
+        height: auto; 
+        margin-top: 5px;
+    }
+
+    .adults, .children {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .guest-counter button {
+        margin: 5px 0; 
+    }
+}
