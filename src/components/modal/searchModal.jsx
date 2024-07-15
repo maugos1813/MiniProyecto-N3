@@ -8,7 +8,7 @@ export const SearchModal = ({ isOpen, onClose, location, setLocation, guest, set
   const [children, setChildren] = useState(0)
 
   const getData = async () => {
-    const rs = await fetch('/stays.json');
+    const rs = await fetch('./src/assets/stays.json');
     const jsonRs = await rs.json();
     setData(jsonRs);
   };

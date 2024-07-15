@@ -6,7 +6,7 @@ export const StaysList = ({ location, guest, searchResults}) => {
   const [filteredStays, setFilteredStays] = useState([]);
 
   const getData = async () => {
-    const rs = await fetch('/stays.json')
+    const rs = await fetch('./src/assets/stays.json')
     const jsonRs = await rs.json()
     setFilteredStays(jsonRs)
   }
