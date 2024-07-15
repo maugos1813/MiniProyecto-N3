@@ -5,7 +5,7 @@ export const Header = ({ setModalIsOpen,location, guest }) => {
   const [value, setValue] = useState("");
 
   const getData = async () => {
-    const rs = await fetch('./src/assets/stays.json');
+    const rs = await fetch('/stays.json');
     const jsonRs = await rs.json();
     setData(jsonRs);
    

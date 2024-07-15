@@ -14,7 +14,7 @@ function App() {
 
 
   const getData = async () => {
-    const rs = await fetch('./src/assets/stays.json');
+    const rs = await fetch('/stays.json');
     const jsonRs = await rs.json();
     setStays(jsonRs);
     setSearchResults(jsonRs);
